@@ -11,7 +11,7 @@ print(f"{value:.2f}")
 #output: 7.50
 
 percentage = 0.785
-print(f"{percentage:.1%}")
+print(f"{percentage:.4%}")
 #output: 78.5%
 
 price = 12.3

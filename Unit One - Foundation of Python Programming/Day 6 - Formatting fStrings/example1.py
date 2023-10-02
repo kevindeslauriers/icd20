@@ -1,20 +1,22 @@
-value = 123.456789
-print(f"{value:.2f}")
-#output: 123.45
+average = 12.65675765
+print(f"{average}")     # 12.65675765
+print(f"{average:.2f}") # rounds to 2 decimal places -> 12.66
+print(f"{average:.3f}") #12.657
 
-value = 45.67891234
-print(f"{value:.3f}")
-#output: 45.678
+number = 6.1
+print(f"{number:.2f}")  # 6.10
 
-value = 7.5
-print(f"{value:.2f}")
-#output: 7.50
+number = 6
+print(f"{number:.2f}")  # 6.00
 
-percentage = 0.785
-print(f"{percentage:.4%}")
-#output: 78.5%
+math_mark = 34
+math_total = 45
 
-price = 12.3
-print(f"The price is ${price:.2f}")
-#output: $12.30
+math_average = math_mark / math_total
+
+print(f"{math_average}")       # 0.755555555
+print(f"{math_average:.1%}")   # 75.6%
+print(f"{math_average:.1f}")   # 0.8
+
+
 

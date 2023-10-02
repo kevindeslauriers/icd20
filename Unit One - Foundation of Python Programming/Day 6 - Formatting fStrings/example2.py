@@ -1,20 +1,10 @@
-number = 42
-print(f"{number:<5}")   
-#output: 42___          # _ indicates space
+print("12345678901234567890")
 
-number = 42
-print(f"{number:>5}")  
-#output: ___42
+name = "Steve"
+print(f"{name}")
+print(f"{name:>20}")    # right aligned
+print(f"{name:>10}")    # right aligned
 
-value = 3.1415
-print(f"{value:^8}")
-#output: _3.1415_
+print(f"{name:<10}Dev") # name is left aligned then Dev after that
 
-long_text = "This is a long string"
-print(f"{long_text:.15}")
-#output: This is a long_
-
-name = "Alice"
-age = 28
-print(f"Name: {name:<10} Age: {age}")
-#output: Name: _____Alice Age: 28
+print(f"{name:^20}")

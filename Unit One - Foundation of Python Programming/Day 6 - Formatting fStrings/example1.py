@@ -20,3 +20,16 @@ print(f"{math_average:.1f}")   # 0.8
 
 
 
+x = 54.547545647564754
+print(f"{x}")
+print(f"{x:.5f}")
+print(f"{x:.5}")
+print(f"{x:.2}") #5.5e+01 -> scientific notation 5.5 x 10^1
+print(f"{x:.3}") #54.5
+print(f"{x:.1}") # 5e+01 -> scientific notation 5 x 10^1
+
+y = 5.6585634654
+print(f"{y:.1}")    # 6e+00 -> scientific notation 6 x 10^0
+
+
+

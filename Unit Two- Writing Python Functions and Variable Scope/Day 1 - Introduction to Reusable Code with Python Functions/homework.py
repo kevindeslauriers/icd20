@@ -95,5 +95,5 @@ sideWidth = float(input("Please enter the width: "))
 
 area = area_of_rectangle(sideLength, sideWidth)
 
-print(f"The area is {round(area,2)} square units.")
+print(f"The area is {area:.2f} square units.")
 

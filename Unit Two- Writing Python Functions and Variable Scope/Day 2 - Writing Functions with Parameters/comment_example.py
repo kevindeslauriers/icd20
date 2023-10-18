@@ -6,8 +6,8 @@ This is a multi-line
 comment
 """
 
-print(f"{'Item':<10}{'Price($)':>10}{'Quantity':>10}{'Total($)':>15}")
-print(f'{"Item":<10}{"Price($)":>10}{"Quantity":>10}{"Total($)":>15}')
+print(f"{'Item'}{'Price($)':>15}{'Quantity':>10}{'Total($)':>15}")
+#print(f'{"Item":<10}{"Price($)":>10#}{"Quantity":>10}{"Total($)":>15}')
 
 name = "Steve"
 print(name)

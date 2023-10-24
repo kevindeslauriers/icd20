@@ -4,7 +4,8 @@ import math
 # function name:
 # what does it return: 
 def calculate_cylinder_volume(radius, height):
-    return math.pi * radius**2 * height
+    volume = math.pi * radius**2 * height
+    return volume 
 
 def calculate_circle_area(radius):
     return math.pi * radius**2
@@ -36,7 +37,9 @@ def larger_string(string_a, string_b):
 def first_two(str):
     return str[0:2]
 
-
+r = 10
+h = 5
+print(f"The volume of a cylinder with height {h} and radius {r} is {calculate_cylinder_volume(r,h):.2f}")
 
 
 

@@ -1,5 +1,8 @@
 import math
 
+# arguments:
+# function name:
+# what does it return: 
 def calculate_cylinder_volume(radius, height):
     return math.pi * radius**2 * height
 
@@ -33,7 +36,7 @@ def larger_string(string_a, string_b):
 def first_two(str):
     return str[0:2]
 
-print(first_two("Hello"))
+
 
 
 

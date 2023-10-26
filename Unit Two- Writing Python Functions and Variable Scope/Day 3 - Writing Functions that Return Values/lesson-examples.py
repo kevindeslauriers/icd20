@@ -4,8 +4,7 @@ import math
 # function name:
 # what does it return: 
 def calculate_cylinder_volume(radius, height):
-    volume = math.pi * radius**2 * height
-    return volume 
+    return math.pi * radius**2 * height
 
 def calculate_circle_area(radius):
     return math.pi * radius**2
@@ -24,7 +23,7 @@ def convert_temperature(degrees, scale):
         return None
 
 def larger_string(string_a, string_b):
-    len_a = len(string_a)
+    len_a = len(string_a)           # len(str) returns the # of characters in the String
     len_b = len(string_b)
 
     if len_a > len_b:
@@ -37,9 +36,20 @@ def larger_string(string_a, string_b):
 def first_two(str):
     return str[0:2]
 
-r = 10
-h = 5
-print(f"The volume of a cylinder with height {h} and radius {r} is {calculate_cylinder_volume(r,h):.2f}")
 
+# once we get to a line that returns a value the function is over
+def test_return_twice():
+    a = 7
+    return a
+    a = 8   # never happens -> unreachable code
+    return a
+
+# r = 10
+# h = 5
+# print(f"The volume of a cylinder with height {h} and radius {r} is {calculate_cylinder_volume(r,h):.2f}")
+
+print(test_return_twice())
+
+print(first_two("Steve"))
 
 

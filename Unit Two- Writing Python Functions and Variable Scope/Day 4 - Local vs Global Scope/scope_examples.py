@@ -1,4 +1,5 @@
-global_book = "Encyclopedia of Science"
+global_book = "Encyclopedia of Science" #global_book is declared outside all functions
+                                        #exists everywhere
 
 def section_book():
     local_book = "Chemistry Handbook"
@@ -18,5 +19,7 @@ if x > 0:
 
 # local scope does not include anything except for functions so I can still see inside_if
 print(inside_if)
+
+
 
 

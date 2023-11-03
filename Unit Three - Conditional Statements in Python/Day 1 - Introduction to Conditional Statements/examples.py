@@ -71,6 +71,15 @@ if range_checker(a, 1, 10):
 if range_checker(a, 1, 10) == False:
     print("ARGHHH!!! I am not happy because you DON'T LISTEN!")
 
-
-
 # Write a function that accepts a numberical grade and returns the Letter Grade
+def grade_converter(grade):
+    if grade >= 80:
+        return "A"
+    if grade >= 70:
+        return "B"
+    if grade >= 60:
+        return "C"
+    if grade >= 50:
+        return "D"
+    
+    return "F"

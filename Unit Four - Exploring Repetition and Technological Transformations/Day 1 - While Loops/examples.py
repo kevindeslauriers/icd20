@@ -21,7 +21,7 @@ def guessing_game(lower, upper):
     user_guess = 0
 
     while user_guess != target_number:
-        user_guess = int(input("Guess the number (1-10): "))
+        user_guess = int(input(f"Guess the number ({lower}-{upper}): "))
 
     print("Congratulations! You guessed the correct number.")
 
@@ -29,16 +29,16 @@ def validate_password():
     correct_password = "secure123"
     entered_password = ""
     num_attempts = 0
-    login_successful = False
+    locked_out = False
 
     while num_attempts < 3 and entered_password != correct_password:
+        num_attempts+=1
         entered_password = input("Enter the password: ")
-        if num_attempts == 3:
+        if num_attempts == 3 and entered_password != correct_password:
             print("Too many attempts. Login Failed.")
             locked_out = True
-        num_attempts+=1
 
-    return locked_out == False
+    return not locked_out
     
 def select_option():
     valid_input = False
@@ -61,9 +61,9 @@ def select_option():
 
 
 
-print_1_to_n(5)
-get_user_info()
-guessing_game(1,10)
+# print_1_to_n(3)
+# get_user_info()
+# guessing_game(1,100)
 
 logged_in = validate_password()
 if logged_in:
@@ -71,7 +71,7 @@ if logged_in:
 else:
     print('Unsuccessful Login')
 
-select_option()
+# select_option()
 
 
 

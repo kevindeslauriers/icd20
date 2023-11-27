@@ -36,6 +36,7 @@ def validate_password():
         if num_attempts == 3:
             print("Too many attempts. Login Failed.")
             locked_out = True
+        num_attempts+=1
 
     return locked_out == False
     

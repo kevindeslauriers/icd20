@@ -51,11 +51,14 @@ def select_option():
 
         if choice == "1":
             print("Hello")
+            valid_input = True
         elif choice == "2":
             print("World")
+            valid_input = True
+
         elif choice == "3":
             print("Exiting the program.")
-            break
+            valid_input = True
         else:
             print("Invalid choice. Please try again.")
 
@@ -65,13 +68,13 @@ def select_option():
 # get_user_info()
 # guessing_game(1,100)
 
-logged_in = validate_password()
-if logged_in:
-    print('Successful Login')
-else:
-    print('Unsuccessful Login')
+# logged_in = validate_password()
+# if logged_in:
+#     print('Successful Login')
+# else:
+#     print('Unsuccessful Login')
 
-# select_option()
+select_option()
 
 
 

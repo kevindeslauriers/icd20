@@ -23,12 +23,17 @@ customers = random.randint(5,10)
 print(customers)
 
 weather = ["cold and sunny","hot and sunny","rainy"]
-weather_multiplier = [2, 5, 0.2]
+
+print(weather[0])
+print(weather[2])
+
+
+weather_multiplier = [1.22, 2.2, 0.2]
 
 weather_type = random.randint(0,2)  # random number 0, 1 or 2
 
 print(weather_type)     # print to see it
-cls()
+
 weath = weather[weather_type]
 multiplier = weather_multiplier[weather_type]
 

@@ -4,6 +4,11 @@ def example_one():
         print(counter)
 
 
+#print the numbers from 0 to 9
+def example_one_a():
+    for counter in range(10):
+        print(counter)
+
 # add the numbers from start to finish and return the total
 def example_two(start, finish):
     total = 0
@@ -50,10 +55,10 @@ def example_six(str1, str2):
 # print(example_six("dogcargodogdog", "dog"))
 
 
-
+example_one_a()
 # example_five("alphabet", 3)
 # example_four("Hello")
-example_three()
+# example_three()
 # example_one()
 # answer = example_two(1,1000)
 # print(answer)

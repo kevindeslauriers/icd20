@@ -50,8 +50,10 @@ print(customers)
 
 #ask if they want to play again
 
-#while(not gameover):
-    # play 1 day of the game
+gameover = False
+assests = 2.00
+while(not gameover):
+    simulateDay(assets)
     # ask if they want to play again
     # if no gameover = True
         

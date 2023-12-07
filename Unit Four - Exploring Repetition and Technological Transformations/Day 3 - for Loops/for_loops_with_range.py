@@ -37,14 +37,14 @@ def example_five(str, n):
         print(str[i:i+n])
 
 
-#count how many times the second work is in the first word
+#count how many times the second word appears in the first word
 def example_six(str1, str2):
     if len(str2) > len(str1):
         return 0
 
     result = 0
 
-    for i in range(0,len(str1)-len(str2) +1):
+    for i in range(0,len(str1)-len(str2)):
         if str1[i:i+len(str2)] == str2:
             result += 1
     
@@ -55,8 +55,8 @@ def example_six(str1, str2):
 # print(example_six("dogcargodogdog", "dog"))
 
 
-example_one_a()
-# example_five("alphabet", 3)
+# example_one_a()
+example_five("alphabet", 3)
 # example_four("Hello")
 # example_three()
 # example_one()

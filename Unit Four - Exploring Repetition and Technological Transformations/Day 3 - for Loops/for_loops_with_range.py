@@ -12,6 +12,7 @@ def example_two(start, finish):
 
     return total
 
+#print numbers from 20 to 2 and go down by 2s
 def example_three():
     for i in range(20, 0, -2):
         print(i)

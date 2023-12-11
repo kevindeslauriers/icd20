@@ -44,7 +44,7 @@ def example_six(str1, str2):
 
     result = 0
 
-    for i in range(0,len(str1)-len(str2)):
+    for i in range(len(str1)-len(str2)+1):
         if str1[i:i+len(str2)] == str2:
             result += 1
     
@@ -52,13 +52,12 @@ def example_six(str1, str2):
 
 
 
-# print(example_six("dogcargodogdog", "dog"))
+print(example_six("dogcargodogdog", "dog"))
 
-
-# example_one_a()
-example_five("alphabet", 3)
+#example_one()
+# example_five("alphabet", 4)
 # example_four("Hello")
 # example_three()
-# example_one()
-# answer = example_two(1,1000)
+# # example_one()
+# answer = example_two(-5,5)
 # print(answer)

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pygame Draw Functions</title>
+  <style>
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+  </style>
+</head>
+<body>
+  <h2>Pygame Draw Functions</h2>
+  <table>
+    <tr>
+      <th>Function</th>
+      <th>Description</th>
+      <th>Parameters</th>
+      <th>Example</th>
+    </tr>
+    <tr>
+      <td>pygame.draw.rect()</td>
+      <td>Draws a rectangle on a surface</td>
+      <td>surface, color, rect, width=0</td>
+      <td>pygame.draw.rect(screen, (255, 0, 0), pygame.Rect(100, 100, 50, 50))</td>
+    </tr>
+    <tr>
+      <td>pygame.draw.circle()</td>
+      <td>Draws a circle on a surface</td>
+      <td>surface, color, center, radius, width=0</td>
+      <td>pygame.draw.circle(screen, (0, 255, 0), (400, 300), 30)</td>
+    </tr>
+    <tr>
+      <td>pygame.draw.line()</td>
+      <td>Draws a line on a surface</td>
+      <td>surface, color, start_pos, end_pos, width=1</td>
+      <td>pygame.draw.line(screen, (255, 255, 255), (0, 0), (800, 600), 2)</td>
+    </tr>
+    <tr>
+      <td>pygame.draw.polygon()</td>
+      <td>Draws a polygon on a surface</td>
+      <td>surface, color, pointlist, width=0</td>
+      <td>pygame.draw.polygon(screen, (255, 255, 0), [(200, 200), (300, 300), (400, 200)])</td>
+    </tr>
+    <tr>
+      <td>pygame.draw.arc()</td>
+      <td>Draws an arc on a surface</td>
+      <td>surface, color, rect, start_angle, stop_angle, width=1</td>
+      <td>pygame.draw.arc(screen, (255, 0, 255), pygame.Rect(100, 100, 200, 200), 0, 3.14, 2)</td>
+    </tr>
+    <tr>
+      <td>pygame.draw.ellipse()</td>
+      <td>Draws an ellipse on a surface</td>
+      <td>surface, color, rect, width=0</td>
+      <td>pygame.draw.ellipse(screen, (0, 0, 255), pygame.Rect(200, 200, 200, 100))</td>
+    </tr>
+    <tr>
+      <td>pygame.draw.aaline()</td>
+      <td>Draws an anti-aliased line on a surface</td>
+      <td>surface, color, start_pos, end_pos, blend=1</td>
+      <td>pygame.draw.aaline(screen, (255, 255, 255), (0, 0), (800, 600))</td>
+    </tr>
+    <tr>
+      <td>pygame.draw.aalines()</td>
+      <td>Draws a series of anti-aliased lines on a surface</td>
+      <td>surface, color, closed, pointlist, blend=1</td>
+      <td>pygame.draw.aalines(screen, (255, 255, 255), True, [(100, 100), (200, 200), (300, 100)])</td>
+    </tr>
+    <tr>
+      <td>pygame.draw.lines()</td>
+      <td>Draws a series of connected lines on a surface</td>
+      <td>surface, color, closed, pointlist, width=1</td>
+      <td>pygame.draw.lines(screen, (255, 255, 0), False, [(100, 100), (200, 200), (300, 100)], 2)</td>
+    </tr>
+</table>
+</body>
+</html>

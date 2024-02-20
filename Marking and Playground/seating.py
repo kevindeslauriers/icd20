@@ -21,4 +21,4 @@ os.system('cls' if os.name == 'nt' else 'clear')
 # Display the result with a delay of 5 seconds between each student
 for student in random_ordered_tuple:
     print(student)
-    time.sleep(10)
+    time.sleep(5)

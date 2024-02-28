@@ -24,7 +24,7 @@ while True:
     pygame.draw.circle(screen, YELLOW, (SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2), 150)
     
     # Draw the eyes (circles)
-    pygame.draw.circle(screen, BLACK, (150, 150), 20)
+    pygame.draw.circle(screen, BLACK, (180, 150), 20)
     pygame.draw.circle(screen, BLACK, (250, 150), 20)
     
     # Draw the mouth (arc)

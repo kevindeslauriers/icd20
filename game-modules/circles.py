@@ -24,13 +24,13 @@ BLUE = (0, 0, 255)
 clock = pygame.time.Clock()
 font = pygame.font.SysFont(None, 36)
 score = 0
-time_remaining = 60
+time_remaining = 10
 player_radius = 5
 player_color = BLUE
 player_x = SCREEN_WIDTH // 2
 player_y = SCREEN_HEIGHT // 2
 player_speed = 5
-
+game_over = False
 circles = []
 
 # Function to create new circles
@@ -65,7 +65,12 @@ while running:
         if not circles:  # Only create a new circle if there's none on the screen
             create_circle()
     else:
-        running = False
+          # Display score
+            gamesover_text = font.render("Game Over", True, BLACK)
+            text_rect = gamesover_text.get_rect()
+            text_rect.center = (SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2)
+            screen.blit(gamesover_text, text_rect)
+            game_over = True
 
     # Draw game elements
     for circle in circles:
@@ -94,11 +99,12 @@ while running:
     pygame.draw.circle(screen, player_color, (player_x, player_y), player_radius)
 
     # Check for collisions between player and circles
-    player_rect = pygame.Rect(player_x - player_radius, player_y - player_radius, 2 * player_radius, 2 * player_radius)
-    for circle in circles:
-        if player_rect.colliderect(circle['rect']):
-            score += 1
-            circles.remove(circle)
+    if game_over == False:
+        player_rect = pygame.Rect(player_x - player_radius, player_y - player_radius, 2 * player_radius, 2 * player_radius)
+        for circle in circles:
+            if player_rect.colliderect(circle['rect']):
+                score += 1
+                circles.remove(circle)
 
     # Refresh screen
     pygame.display.flip()

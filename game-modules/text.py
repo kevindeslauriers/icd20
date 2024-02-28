@@ -21,7 +21,8 @@ GREEN = (0, 255, 0)
 BLUE = (0, 0, 255)
 
 # Create a font object
-font = pygame.font.SysFont(None, 48)
+font1 = pygame.font.SysFont(None, 24)
+font2 = pygame.font.SysFont(None, 48)
 
 # Game loop
 running = True
@@ -34,10 +35,10 @@ while running:
             running = False
 
     # Draw text to the screen
-    text = font.render("Hello, Pygame @ (25, 25)!", True, BLACK)
-    screen.blit(text, (25,25))
+    text = font1.render("Hello, Pygame @ (25, 25)!", True, BLUE)
+    screen.blit(text, (125,25))
 
-    text2 = font.render("I am centered", True, BLACK)
+    text2 = font2.render("I am centered", True, BLACK)
     text_rect = text2.get_rect()
     text_rect.center = (SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2)
     screen.blit(text2, text_rect)

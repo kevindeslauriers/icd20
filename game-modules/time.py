@@ -33,16 +33,16 @@ while running:
     # Control the frame rate
     clock.tick(60)  # Set the frame rate to 60 frames per second
     # Update game elements
-    time_text = font.render(f"Time: {clock.get_time()}", True, BLACK)
+    time_text = font.render(f"Time: {int(time_remaining)}", True, BLACK)
     screen.blit(time_text, (SCREEN_WIDTH // 2 - time_text.get_width() // 2, SCREEN_HEIGHT // 2 - time_text.get_height() // 2))
 
     # Decrease the time_remaining by the amount of time that has passed since the last frame
     time_remaining -= clock.get_time() / 1000  # Convert milliseconds to seconds
 
     # Check if time has run out
-    # if time_remaining <= 0:
-    #     time_remaining = 0
-    #     running = False
+    if time_remaining <= 0:
+        time_remaining = 0
+        running = False
 
     # Refresh screen
     pygame.display.flip()

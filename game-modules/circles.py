@@ -3,9 +3,12 @@ import sys
 sys.path.append('C:\\Python312\\Lib\\site-packages')
 
 import pygame
+import os
 
 # Initialize Pygame
 pygame.init()
+pygame.mixer.init()
+ouch = pygame.mixer.Sound('beep.wav')
 
 # Set up the screen
 SCREEN_WIDTH = 800
@@ -105,6 +108,7 @@ while running:
             if player_rect.colliderect(circle['rect']):
                 score += 1
                 circles.remove(circle)
+                pygame.mixer.Sound.play(ouch)
 
     # Refresh screen
     pygame.display.flip()

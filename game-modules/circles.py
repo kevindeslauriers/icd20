@@ -1,6 +1,6 @@
 import random
 import sys
-# sys.path.append('C:\\Python312\\Lib\\site-packages')
+sys.path.append('C:\\Python312\\Lib\\site-packages')
 
 import pygame
 
@@ -24,7 +24,7 @@ BLUE = (0, 0, 255)
 clock = pygame.time.Clock()
 font = pygame.font.SysFont(None, 36)
 score = 0
-time_remaining = 10
+time_remaining = 60
 player_radius = 5
 player_color = BLUE
 player_x = SCREEN_WIDTH // 2

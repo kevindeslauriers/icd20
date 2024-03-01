@@ -1,4 +1,3 @@
-import random
 import sys
 sys.path.append('C:\\Python312\\Lib\\site-packages')
 import pygame
@@ -14,7 +13,6 @@ pygame.display.set_caption("Key Mover")
 
 # Define colors
 WHITE = (255, 255, 255)
-BLACK = (0, 0, 0)
 BLUE = (0, 0, 255)
 
 # Define game variables

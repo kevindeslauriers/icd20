@@ -45,7 +45,7 @@ while running:
             running = False
 
      # Control the frame rate
-    clock.tick(60)  # Set the frame rate to 60 frames per second
+    clock.tick(5)  # Set the frame rate to 60 frames per second
     
     # Draw game elements
     for circle in circles:

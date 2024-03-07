@@ -193,6 +193,7 @@ while running:
             gameOver = False
             score = 0
             lives = 5
+            level = 0 
 
 
     
@@ -264,7 +265,8 @@ while running:
         for circle in circles:
             if bullet['rect'].colliderect(circle['rect']):
                 circles.remove(circle)
-                bullets.remove(bullet)
+                if bullet in bullets:
+                    bullets.remove(bullet)
                 if level == 0:
                     score +=1 
                 else: 

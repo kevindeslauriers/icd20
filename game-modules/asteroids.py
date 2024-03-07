@@ -14,6 +14,7 @@ thrust = pygame.mixer.Sound('thrust.wav')
 smallBoom = pygame.mixer.Sound('bangSmall.wav')
 mediumBoom = pygame.mixer.Sound('bangMedium.wav')
 largeBoom = pygame.mixer.Sound('bangLarge.wav')
+extraShip = pygame.mixer.Sound('extraShip.wav')
 
 
 # Set up the screen
@@ -271,6 +272,7 @@ while running:
                 if life_levels[level] < score:
                     level +=1
                     lives += 1
+                    pygame.mixer.Sound.play(extraShip)
                 if circle['radius'] < 15:
                     pygame.mixer.Sound.play(smallBoom)
                 else:

@@ -4,7 +4,6 @@ sys.path.append('C:\\Python312\\Lib\\site-packages')
 
 import pygame
 import os
-
 import math
 
 pygame.init()
@@ -64,8 +63,12 @@ def create_bullet():
 
 
 # Function to create new circlular asteroids
-def create_circles():
+def create_circles(explode, circle):
     radius = random.randint(10, 20)
+
+    if explode == True:
+        radius = 5
+
     color = BLACK
     if level == 10:
         color = WHITE
@@ -76,22 +79,40 @@ def create_circles():
         speedx = 1
     if speedy == 0:
         speedy = 1
-    x = 0
-    y = 0
-    if speedy > 0 and speedx > 0: #it is going down so let's start at the top of the screen
-        x = random.randint(0, SCREEN_WIDTH - 2*radius)
-        y = -2*radius
-    elif speedy < 0 and speedx > 0:
-        x = -2*radius
-        y = random.randint(0, SCREEN_HEIGHT - 2*radius)
-    elif speedy < 0 and speedx < 0:
-        x = random.randint(0, SCREEN_WIDTH - 2*radius)
-        y = SCREEN_HEIGHT + 2*radius
-    elif speedy > 0 and speedx < 0:
-        x = SCREEN_WIDTH + 2*radius
-        y = random.randint(0, SCREEN_HEIGHT - 2*radius)
-    circle = {'rect': pygame.Rect(x, y, 2*radius, 2*radius), 'color': color, 'radius': radius, 'width':2, 'speedx':speedx, 'speedy':speedy}
-    circles.append(circle)
+    print(circle)
+    if (circle == None):
+        x = 0
+        y = 0
+    else:
+        x = circle['rect'].x
+        y = circle['rect'].y
+    if explode == False:
+        if speedy > 0 and speedx > 0: #it is going down so let's start at the top of the screen
+            x = random.randint(0, SCREEN_WIDTH - 2*radius)
+            y = -2*radius
+        elif speedy < 0 and speedx > 0:
+            x = -2*radius
+            y = random.randint(0, SCREEN_HEIGHT - 2*radius)
+        elif speedy < 0 and speedx < 0:
+            x = random.randint(0, SCREEN_WIDTH - 2*radius)
+            y = SCREEN_HEIGHT + 2*radius
+        elif speedy > 0 and speedx < 0:
+            x = SCREEN_WIDTH + 2*radius
+            y = random.randint(0, SCREEN_HEIGHT - 2*radius)
+    c = {'rect': pygame.Rect(x, y, 2*radius, 2*radius), 'color': color, 'radius': radius, 'width':2, 'speedx':speedx, 'speedy':speedy}
+    circles.append(c)
+    if explode == True:
+        speedx = random.randint(-3, 3)
+        speedy = random.randint(-2, 2)
+
+        if speedx == 0:
+            speedx = 1
+        if speedy == 0:
+            speedy = 1
+        
+        c = {'rect': pygame.Rect(x, y, 2*radius, 2*radius), 'color': color, 'radius': radius, 'width':2, 'speedx':speedx, 'speedy':speedy}
+        circles.append(c)
+
 
 spaceship = [(SCREEN_WIDTH//2,SCREEN_HEIGHT//2), (SCREEN_WIDTH//2-15,SCREEN_HEIGHT//2+5), (SCREEN_WIDTH//2,SCREEN_HEIGHT//2-25), (SCREEN_WIDTH//2+15,SCREEN_HEIGHT//2+5)]
 
@@ -150,7 +171,7 @@ while running:
             allowshoot = True
     
     if len(circles) < 10 and random.randint(1,20)== 5:
-        create_circles()
+        create_circles(False, None)
 
     color_text = BLACK
     if level == 10:
@@ -264,7 +285,6 @@ while running:
         #did they collide with a asteroid
         for circle in circles:
             if bullet['rect'].colliderect(circle['rect']):
-                circles.remove(circle)
                 if bullet in bullets:
                     bullets.remove(bullet)
                 if level == 0:
@@ -275,10 +295,14 @@ while running:
                     level +=1
                     lives += 1
                     pygame.mixer.Sound.play(extraShip)
-                if circle['radius'] < 15:
+                if circle['radius'] < 12:
                     pygame.mixer.Sound.play(smallBoom)
+                    circles.remove(circle)
                 else:
                     pygame.mixer.Sound.play(mediumBoom)
+                    create_circles(True, circle)
+                    circles.remove(circle)
+
 
     
 

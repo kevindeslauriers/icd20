@@ -15,6 +15,8 @@ screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 pygame.display.set_caption("Pong")
 
 
+
+
 paddle_w = 20
 paddle_h = 80
 paddle_speed = 10
@@ -28,10 +30,14 @@ ball_radius = 10
 ball_x = SCREEN_WIDTH // 2
 ball_y = SCREEN_HEIGHT // 2
 
+bullet_size = 3
+
 ball_speed_x = 5
 ball_speed_y = 5
 
-
+left_bullet = pygame.Rect(paddle1_x+paddle_w, paddle1_y + paddle_h // 2 , bullet_size, bullet_size)
+left_bullet_live = False
+bullet_speed = 5
 
 WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)
@@ -60,12 +66,17 @@ while running:
     if keys[pygame.K_DOWN]:
         paddle2_y += paddle_speed
         paddle2_y = min(paddle2_y, SCREEN_HEIGHT - paddle_h)  # Ensure player does not move off the bottom edge
-
+    if keys[pygame.K_a]  and left_bullet_live == False:
+        left_bullet = pygame.Rect(paddle1_x+paddle_w, paddle1_y + paddle_h // 2 , bullet_size, bullet_size)
+        left_bullet_live = True
 
 
     pygame.draw.rect(screen, BLACK, [paddle1_x, paddle1_y,paddle_w, paddle_h])
     pygame.draw.rect(screen, BLACK, [paddle2_x, paddle2_y,paddle_w, paddle_h])
     pygame.draw.circle(screen, BLACK, (ball_x, ball_y), ball_radius)
+    if left_bullet_live:
+        pygame.draw.rect(screen, BLACK, [left_bullet.x, left_bullet.y,left_bullet.w, left_bullet.h])
+        left_bullet.x += bullet_speed
 
     clock.tick(60)  # Set the frame rate to 60 frames per second
 

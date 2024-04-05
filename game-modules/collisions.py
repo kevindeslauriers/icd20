@@ -1,7 +1,6 @@
 import random
 import sys
 sys.path.append('C:\\Python312\\Lib\\site-packages')
-
 import pygame
 
 pygame.init()

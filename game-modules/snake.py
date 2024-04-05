@@ -60,8 +60,7 @@ def main():
         # Move the snake
         #snake_positions[0][0] is the head x coordinate
         #snake_positions[0][1] is the head y coordinate
-        # let's move the head
-                    
+        # let's move/add the head            
         new_head = ((snake_positions[0][0] + snake_direction[0] * BLOCK_SIZE) % SCREEN_WIDTH,
                     (snake_positions[0][1] + snake_direction[1] * BLOCK_SIZE) % SCREEN_HEIGHT)
 

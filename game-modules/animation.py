@@ -8,11 +8,15 @@ pygame.init()
 
 # Constants
 SCREEN_WIDTH = 800
-SCREEN_HEIGHT = 600
+SCREEN_HEIGHT = 360
 SPRITE_WIDTH = 823 // 6  # Width of a single sprite frame
 SPRITE_HEIGHT = 547 // 4  # Height of a single sprite frame
 NUM_ROWS = 4
 NUM_COLS = 6
+BACKGROUND_SCROLL_SPEED = 1  # Speed of background scrolling
+
+# Background position
+background_x = 0
 
 # Load sprite sheet image
 sprite_sheet = pygame.image.load("spritesheet.png")
@@ -29,6 +33,10 @@ for row in range(NUM_ROWS):
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 clock = pygame.time.Clock()
 
+# Load background image
+background_image = pygame.image.load("background.jpg")
+background_rect = background_image.get_rect()
+
 # Player position and movement
 player_x = SCREEN_WIDTH // 2
 player_y = SCREEN_HEIGHT // 2
@@ -44,6 +52,14 @@ running = True
 while running:
     screen.fill((255, 255, 255))  # Fill screen with white
 
+    # Scroll the background
+    background_x -= BACKGROUND_SCROLL_SPEED
+    if background_x < -background_rect.width:
+        background_x = 0
+
+    # Draw the background
+    screen.blit(background_image, (background_x, 0))
+    screen.blit(background_image, (background_x + background_rect.width, 0))
     # Handle events
     for event in pygame.event.get():
         if event.type == pygame.QUIT:

@@ -8,21 +8,18 @@ pygame.init()
 
 # Constants
 SCREEN_WIDTH = 800
-SCREEN_HEIGHT = 360
+SCREEN_HEIGHT = 600
+SPRITE_SCALE = 0.5  # Scale factor for the sprite
+BACKGROUND_SCROLL_SPEED = 1  # Speed of background scrolling
+SPRITE_WIDTH = int(823 / 6 * SPRITE_SCALE)  # Width of a single scaled sprite frame
+SPRITE_HEIGHT = int(547 / 4 * SPRITE_SCALE)  # Height of a single scaled sprite frame
 NUM_ROWS = 4
 NUM_COLS = 6
-SPRITE_WIDTH = 823 // NUM_COLS  # Width of a single sprite frame
-SPRITE_HEIGHT = 547 // NUM_ROWS  # Height of a single sprite frame
-
-BACKGROUND_SCROLL_SPEED = 1  # Speed of background scrolling
-
-# Background position
-background_x = 0
 
 # Load sprite sheet image
 sprite_sheet = pygame.image.load("spritesheet.png")
 
-# Extract individual frames
+# Extract individual frames and scale them
 sprite_frames = []
 for row in range(NUM_ROWS):
     for col in range(NUM_COLS):
@@ -30,18 +27,24 @@ for row in range(NUM_ROWS):
         y = row * SPRITE_HEIGHT
         sprite_frames.append(sprite_sheet.subsurface(pygame.Rect(x, y, SPRITE_WIDTH, SPRITE_HEIGHT)))
 
-# Set up the display
-screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
-clock = pygame.time.Clock()
+        # sprite_frames.append(pygame.transform.scale(sprite_sheet.subsurface(pygame.Rect(x, y, SPRITE_WIDTH, SPRITE_HEIGHT)),
+                                                    #  (SPRITE_WIDTH, SPRITE_HEIGHT)))
 
 # Load background image
 background_image = pygame.image.load("background.jpg")
 background_rect = background_image.get_rect()
 
+# Set up the display
+screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
+clock = pygame.time.Clock()
+
 # Player position and movement
 player_x = SCREEN_WIDTH // 2
 player_y = SCREEN_HEIGHT // 2
 player_speed = 5
+
+# Background position
+background_x = 0
 
 # Animation variables
 current_animation = 0  # 0: down, 1: left, 2: right, 3: up
@@ -54,13 +57,14 @@ while running:
     screen.fill((255, 255, 255))  # Fill screen with white
 
     # Scroll the background
-    # background_x -= BACKGROUND_SCROLL_SPEED
+    background_x -= BACKGROUND_SCROLL_SPEED
     if background_x < -background_rect.width:
         background_x = 0
 
     # Draw the background
     screen.blit(background_image, (background_x, 0))
     screen.blit(background_image, (background_x + background_rect.width, 0))
+
     # Handle events
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -69,10 +73,10 @@ while running:
     # Handle player movement
     keys = pygame.key.get_pressed()
     if keys[pygame.K_LEFT]:
-        background_x -= BACKGROUND_SCROLL_SPEED
+        player_x -= player_speed
         current_animation = 1  # Set animation to left
     elif keys[pygame.K_RIGHT]:
-        background_x -= BACKGROUND_SCROLL_SPEED
+        player_x += player_speed
         current_animation = 2  # Set animation to right
     elif keys[pygame.K_UP]:
         player_y -= player_speed

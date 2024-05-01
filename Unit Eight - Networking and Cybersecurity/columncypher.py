@@ -2,7 +2,7 @@
 # Columnar Transposition
 import math
 
-key = "hyundai"
+key = "hi"
 
 # Encryption
 def encryptMessage(msg):
@@ -94,7 +94,7 @@ def decryptMessage(cipher):
     return msg
 
 # Driver Code
-msg = "ymjinqnljsyxyzijsyrjynhzqtzxqdwjanjbjiymjhtruqjcfqltwnymrgjktwjnruqjrjsynslnynsymjuwtlwfr"
+msg = "hello"
 
 cipher = encryptMessage(msg)
 print("Encrypted Message: {}".

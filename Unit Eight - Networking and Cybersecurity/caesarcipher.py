@@ -3,6 +3,7 @@ def caesar_cipher(text, shift):
     for char in text:
         if char.isupper():
             encrypted_text += chr((ord(char) - 65 + shift) % 26 + 65)
+            # mod to wrap back to the start (A)
         else:
             encrypted_text += char
     return encrypted_text
